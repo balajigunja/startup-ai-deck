@@ -5,6 +5,7 @@ import compression from "compression";
 import rateLimit from "express-rate-limit";
 import dotenv from "dotenv";
 import path from "path";
+import authRoutes from './routes/auth.js';
 
 import generateRouter from "./routes/generate.js";
 import regenerateRouter from "./routes/regenerate.js";
@@ -94,6 +95,7 @@ app.use("/api/qa", qaRouter);
 app.use("/api/chat", chatRouter);
 app.use("/api/export", exportRouter);
 app.use("/api/pitch-health-check", pitchHealthCheckRouter);
+app.use('/api/auth', authRoutes);
 
 // 404 Route
 app.use((_req: Request, res: Response) => {
